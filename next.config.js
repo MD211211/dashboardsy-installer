@@ -5,7 +5,7 @@ module.exports = {
   },
   env: {
     NEXTAUTH_URL: 'https://dash.example.com', // http://localhost:3000 for dev purposes, also change in .env
-    SECRET_COOKIE_PASSWORD: "", // cookie pass, 32 chars min
+    SECRET_COOKIE_PASSWORD: "cookiepass", // cookie pass, 32 chars min
     MYSQL_HOST: "localhost",
     MYSQL_USER: "dashboardsy",
     MYSQL_PASSWORD: "dbpass",
