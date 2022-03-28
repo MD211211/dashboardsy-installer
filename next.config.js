@@ -8,10 +8,10 @@ module.exports = {
     SECRET_COOKIE_PASSWORD: "", // cookie pass, 32 chars min
     MYSQL_HOST: "localhost",
     MYSQL_USER: "dashboardsy",
-    MYSQL_PASSWORD: "",
+    MYSQL_PASSWORD: "dbpass",
     MYSQL_DATABASE: "dashboardsy",
-    DISCORD_CLIENT_ID: "",
-    DISCORD_CLIENT_SECRET: "",
+    DISCORD_CLIENT_ID: "clientid",
+    DISCORD_CLIENT_SECRET: "clientsecret",
   },
   images: {
     domains: ['cdn.discordapp.com', 'media.discordapp.net'],
