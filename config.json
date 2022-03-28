@@ -1,0 +1,112 @@
+{
+   "hostname": "Wrible",
+   "adminapi": {
+      "enabled": false,
+      "apikey": ""
+   },
+   "panel_url": "panelurl",
+   "panel_apikey": "apikey",
+   "_comment": "you need to make one location for each node and only add one node for each location",
+   "locations": [
+      {
+         "id": 69,
+         "name": "location1",
+         "key": "node1"
+      }
+   ],
+   "_comment2": "btw, you can use the eggs from dashactyl v0.4 here too.",
+   "eggs": [
+      {
+         "name": "Paper",
+         "key": "paper",
+         "_comment": "change this egg id to the egg id from pterodactyl",
+         "eggid": 3,
+         "docker_image": "ghcr.io/pterodactyl/yolks:java_17",
+         "startup": "java -Xms128M -Xmx{{SERVER_MEMORY}}M -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}",
+         "skip_scripts": false,
+         "oom_disabled": true,
+         "environment": {
+            "MINECRAFT_VERSION": "latest",
+            "SERVER_JARFILE": "server.jar",
+            "DL_PATH": "",
+            "BUILD_NUMBER": "latest"
+         },
+         "feature_limits": {
+            "databases": 1,
+            "backups": 1
+         }
+      }
+   ],
+
+   "packages": {
+      "default": {
+         "cpu": 100,
+         "memory": 2048,
+         "disk": 4096,
+         "serverlimit": 2
+      }
+   },
+   "shop": {
+      "prices": {
+         "_comment": "price per 100 for cpu, memory, disk and price per 1 server",
+         "cpu": 2334,
+         "memory": 5363,
+         "disk": 2353,
+         "serverlimit": 2623
+      }
+   },
+   "earningmethods": {
+      "j4r": [
+         {
+            "_comment": "coins will NOT be removed if the user leaves the guild after getting rewards.",
+            "gid": "GUILD ID",
+            "coins": 500
+         }
+      ],
+      "mining": {
+         "enabled": false,
+         "_comment": "Create an account on nicehash.com, go to https://www.nicehash.com/my/mining/rigs, then click on mining address, and paste that address here.",
+         "nicehashAddress": "",
+         "_comment2": "The amount of coins below will be given to the user for every 5 minutes they mine.",
+         "coinsperfiveminutes": {
+            "cpu": {
+               "_comment": "Hashrate in kH/s",
+               ".5to1": 0.5,
+               "1to2": 1,
+               "2to3": 2,
+               "3to4": 3,
+               "above4": 5
+            },
+            "gpu": {
+               "_comment": "Hashrate in MH/s",
+               "5to10": 3,
+               "10to20": 5,
+               "20to30": 7,
+               "30to40": 9,
+               "above40": 11
+            }
+         }
+      }
+   },
+   "renewal": {
+      "enabled": false,
+      "_comment": "after how many days to cut the coins for the server renewal, if the user does not have enough coins, suspend the server.",
+      "daystorenewafter": 7,
+      "costtorenew": 100,
+      "_comment2": "if true, the suspended servers will be deleted after the days you mentioned below if the user still doesn not have enough coins",
+      "automaticallydeleteservers": false,
+      "deleteserverafterhowmanydays": 7 
+   },
+   "auditlogs": {
+      "enabled": false,
+      "discordwebhookurl": ""
+   },
+   "ads": {
+      "antiadblock": false,
+      "adsense": {
+         "enabled": false,
+         "dataaddclient": "",
+         "dataaddslot": ""
+      }
+   }
+}
