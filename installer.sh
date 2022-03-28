@@ -50,15 +50,15 @@ echo "------------------------------"
 echo "-INSTALLING REQUIRED PACKAGES-"
 echo "------------------------------"
 sudo apt update
-apt install git
-apt install nginx
+sudo apt install -y git
+sudo apt install -y nginx
 
 echo ""
 
 echo "Installing Nodejs"
 
-apt-get install curl git nginx software-properties-common
-curl -sL https://deb.nodesource.com/setup_16.x | bash - 
+sudo apt install -y curl git software-properties-common
+curl -sL https://deb.nodesource.com/setup_16.x | sudo bash  
 sudo apt-get install -y nodejs
 
 echo ""
@@ -66,7 +66,7 @@ echo ""
 echo "Installing Mariadb database"
 echo ""
 
-sudo apt install mariadb-server
+sudo apt install -y mariadb-server
 sudo mysql_secure_installation
 sudo systemctl start mariadb.service
 
@@ -102,7 +102,7 @@ NEXTAUTH_URL_INTERNAL=http://localhost:3000
 echo ""
 echo "Configuring next.config.js"
 
-curl -o next.config.js https://raw.githubusercontent.com/BreadCatto/dashboardsy-installer/main/next.config.js
+curl -s -o next.config.js https://raw.githubusercontent.com/BreadCatto/dashboardsy-installer/main/next.config.js
 
 sed -i -e "s@dash.example.com@${dashurl}@g" next.config.js
 sed -i -e "s@cookiepass@${cookiepassword}@g" next.config.js
@@ -114,7 +114,7 @@ sed -i -e "s@clientsecret@${clientsecret}@g" next.config.js
 echo ""
 echo "Configuring config.json"
 
-curl -o config.json https://raw.githubusercontent.com/BreadCatto/dashboardsy-installer/main/config.json
+curl -s -o config.json https://raw.githubusercontent.com/BreadCatto/dashboardsy-installer/main/config.json
 sed -i -e "s@panelurl@${panelurl}@g" config.json
 sed -i -e "s@apikey123@${panelapi}@g" config.json
 sed -i -e "s@69@${locationid}@g" config.json
@@ -140,7 +140,7 @@ npm run build
 
 pm2 start --name=dashboardsy npm -- start
 systemctl start nginx
-sudo apt install certbot
+sudo apt install -y certbot
 sudo apt install -y python3-certbot-nginx
 certbot certonly --nginx -d $dashurl
 
@@ -153,7 +153,7 @@ cd /etc/nginx/conf.d
 
 touch dashboardsy.conf
 
-curl -o /etc/nginx/conf.d/dashboardsy.conf https://raw.githubusercontent.com/BreadCatto/dashboardsy-installer/main/dashboardsy.conf 
+curl -s -o /etc/nginx/conf.d/dashboardsy.conf https://raw.githubusercontent.com/BreadCatto/dashboardsy-installer/main/dashboardsy.conf 
 sed -i -e "s@<domain>@${dashurl}@g" /etc/nginx/conf.d/dashboardsy.conf
 
 systemctl restart nginx
