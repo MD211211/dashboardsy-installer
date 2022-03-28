@@ -5,7 +5,7 @@
       "apikey": ""
    },
    "panel_url": "panelurl",
-   "panel_apikey": "apikey",
+   "panel_apikey": "apikey123",
    "_comment": "you need to make one location for each node and only add one node for each location",
    "locations": [
       {
