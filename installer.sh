@@ -6,13 +6,18 @@ echo "┏┛┗┛┃ ┃┏━┓┃ ┃┗━┛┃ ┃┃︱┃┃ ┃┗━�
 echo "┗━━━┛ ┗┛︱┗┛ ┗━━━┛ ┗┛︱┗┛ ┗━━━┛ ┗━━━┛ ┗┛︱┗┛ ┗┛┗━┛ ┗━━━┛ ┗━━━┛ ︱︱┗┛︱︱"
 echo ""
 echo ""
-
-echo "This script must be executed with root privileges (sudo)."
-echo ""
+if [[ $EUID -ne 0 ]]; then
+echo "This script must be executed with root privileges (sudo)."   
+exit 1
+fi
 
 read -p "Enter the password for mariadb database [Note: Skipping this step may corrupt the installation]: " databasepassword
 echo ""
 read -p "Enter the url where Dashboardsy Should be installed [Note: Don't use http:// or https:// and domain should point to ip of this server]: " dashurl
+if [[ "$dashurl" == *".cf" || "$dashurl" == *".ml" || "$dashurl" == *".tk" || "$dashurl" == *".ga" || "$dashurl" == *".gq" ]]; then
+        echo "get some money bitch"
+        exit 1
+fi
 echo ""
 read -p "Enter the secret cookie password [32 chars min]: " cookiepassword
 echo ""
@@ -21,6 +26,10 @@ echo ""
 read -p "Enter the Discord OAuth Client Secret [https://discord.dev > Applicaton > OAuth2 > General > Client Secret]: " clientsecret
 echo ""
 read -p "Enter the panel url [Note: Don't use http:// or https://]: " panelurl
+if [[ "$panelurl" == *".cf" || "$panelurl" == *".ml" || "$panelurl" == *".tk" || "$panelurl" == *".ga" || "$panelurl" == *".gq" ]]; then
+        echo "get some money bitch"
+        exit 1
+fi
 echo ""
 read -p "Enter the admin api key of panel [With all Read Write Permissions, or the dashboard may not work properly]: " panelapi
 echo ""
