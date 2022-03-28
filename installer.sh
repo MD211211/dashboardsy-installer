@@ -133,8 +133,8 @@ echo "Configuring next.config.js"
 curl -s -o next.config.js https://raw.githubusercontent.com/BreadCatto/dashboardsy-installer/main/next.config.js
 
 sed -i -e "s@dash.example.com@${dashurl}@g" next.config.js
-sed -i -e "s@cookiepass@${cookiepassword}@g" next.config.js
 sed -i -e "s@dbpass@${databasepassword}@g" next.config.js
+sed -i -e "s@cookiepass@${cookiepassword}@g" next.config.js
 sed -i -e "s@clientid@${clientid}@g" next.config.js
 sed -i -e "s@clientsecret@${clientsecret}@g" next.config.js
 
