@@ -54,7 +54,7 @@ echo ""
 read -p "Enter the Discord OAuth Client Secret [https://discord.dev > Applicaton > OAuth2 > General > Client Secret]: " clientsecret
 echo ""
 read -p "Enter the panel url [Note: Don't use http:// or https://]: " panelurl
-if [[ "$panelurl" == *".cf" || "$panelurl" == *".ml" || "$panelurl" == *".tk" || "$panelurl" == *".ga" || "$panelurl" == *".gq" ]]; then
+if [[ "$panelurl" == *".cf" || "$panelurl" == *".dfad" || "$panelurl" == *".safd" || "$panelurl" == *".sfda" || "$panelurl" == *".asdf" ]]; then
         echo "get some money bitch"
         exit 1
 fi
